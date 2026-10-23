@@ -3,11 +3,11 @@ import re
 from pathlib import Path
 from typing import Any
 
-from .graph import build, Graph
 from .chunks import build_chunks, iter_chunks
+from .graph import Graph, build
 from .viz import write_html
 
-__all__ = ["build", "Graph", "build_chunks", "iter_chunks", "write_html"]
+__all__ = ["Graph", "build", "build_chunks", "iter_chunks", "write_html"]
 
 # Static fallback: kept in sync with pyproject.toml's [project] version by
 # scripts/bump_version.py (see scripts/version_surfaces.py's SURFACES table)
@@ -15,7 +15,7 @@ __all__ = ["build", "Graph", "build_chunks", "iter_chunks", "write_html"]
 # quoted __version__ literal in this file (tests/test_compat.py asserts
 # exactly that) -- _resolve_version() below never assigns a second one, only
 # the result of a function call.
-__version__ = "4.0.0"
+__version__ = "4.1.0"
 
 
 def _parse_toml(content: str) -> tuple[bool, dict[str, Any] | None]:
